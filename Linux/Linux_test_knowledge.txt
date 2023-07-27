@@ -1,0 +1,68 @@
+1. Create directories structure
+Please create the test directory. When done, please create onefile and manyfiles directories inside test.
+Ans: mkdir -p ./test/onefile &&  mkdir -p ./test/manyfiles
+
+2. Create files
+We created some directories, it is time to create files!
+
+In the onefile directory create a file called myfile.txt and write the string: Hello! This is my string! . The method how you do it is up to you.
+Ans: echo "Hello! This is my string!" > ./test/onefile/myfile.txt
+
+3. Create files
+This time you need to create a lot of files.
+
+In the manyfiles directory create 10.000 files, called myfile<number> (from myfile01 to myfile10000). The method how you do it is up to you.
+Ans: touch ./test/manyfiles/myfile{01..10000}
+
+4. Use pipe
+We still have our onefile/myfile.txt file available. Your task is to:
+
+Create onefile/copied file with string New content
+pipe content of onefile/myfile.txt to onefile/copied. Both strings must be in the file!
+Ans: echo "New content" > ./test/onefile/copied && cat ./test/onefile/myfile.txt >> ./test/onefile/copied
+
+5. Copy
+We continue our work with test/onefile/myfile.txt file. Now you have to:
+
+Copy this file into higher directory (test/).
+Copy this file into /tmp with file name copiedfile .
+Ans: cp ./test/onefile/myfile.txt ./test/ && cp ./test/onefile/myfile.txt /tmp/copiedfile
+
+6. Move
+We continue our work with test/onefile/myfile.txt file. Now you have to:
+
+Move test/onefile/myfile.txt to /root directory.
+Move test/manyfiles into test/moved.
+Ans: mv ./test/onefile/myfile.txt /root/ && mv ./test/manyfiles ./test/moved/
+
+7. Alias
+create alias mydir which will list user's home directory.
+
+The alias must be configured in .bash_aliases file.
+Ans: nano .bash_aliases 
+     [write in nano]
+	alias mydir="cd" 
+8. Users
+Create three users:
+
+administrator
+appuser
+anotheruser
+All should have home directory created (in standard location) and bash should be set as default shell.
+
+Add appuser group as a secondary to administrator.
+Ans: useradd administrator -s /bin/bash -m
+     useradd appuser -s /bin/bash -m
+     useradd anotheruser -s /bin/bash -m
+     usermod appuser -G administrator or sudo usermod -a -G appuser administrator
+     
+9. Users
+Remove anotheruser , please remove user's files and home directory also.
+Ans: sudo deluser --remove-home anotheruser
+
+10. Users
+Add appuser to sudoers by adding special group as secondary to the user.
+
+Add administrator to sudoers. This must be done by creating separate config file called administrator in the proper location. Administrator must be able to execute any command as root without password.
+Ans: (Remaining)
+
