@@ -5,3 +5,18 @@ Ls
 	: '-' one dash determined the argument is one letter like ls -l, ls -h, ls -a however we can pass arguments such as ls -alh idk how it would exlained.
 	: '--' double dash is indicates the command passed with more than one letter arguments like ls --help, ls --sort=size, ls --inode
 
+command with arguments 
+ls -a [list all files that includes a hidden files as well]
+ls -l [list all files with file permission and owner information and group, user information with date and time of file creation]
+ls . [list file in current directory]
+ls .. [double dote is for parent directory so we can see the availables files in parent directory also]
+ls -al . or ls -al [this is two identical commands bcz by default whenever we use ls it by default will take current path as executing command]
+ls -ltu [here 'u' argument will display a files which is modified by content]
+
+- Sort a files based on size, time.
+ls -lt [will list all files and will display last modified file in first position]
+
+ls -lS [sort by file size; largest first]
+
+- Recursive 
+ls -R [display recursive files if there is a directory and it contains files]
