@@ -45,3 +45,12 @@ S -process state
 %MEM -like for CPU, but this value represents memory usage
 TIME+ -Total time of CPU usage by the process
 COMMAND -quite obvious, this process is executed.
+
+hit below key for 
+1 -for cpu information
+t -for task information
+m -memory information
+H -threats
+v,V -shows trees of processes, instead of simple list[helps to understand parent-child proceeses]
+s -for refresh time
+w -if many settings were changed and we wish to keep them for longer time, we don't need to provide all of them again we use top again simply pass 'w'
