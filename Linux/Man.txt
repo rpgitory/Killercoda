@@ -1,0 +1,9 @@
+Man (Mannual)
+
+- To check any command mannual and detail description with it's usage and arguments, how to use it.
+
+man 2 ls [it will display a 2 page of mannual]
+man -f ls [it will display a command purpose]
+man -w ls [give the location of file where the mannual is stored (here it will provide a location of ls mannual file)]
+
+
