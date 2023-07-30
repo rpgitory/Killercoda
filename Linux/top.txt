@@ -1,0 +1,47 @@
+top 
+
+first line in top
+top - 22:01:39 up 19 min,  0 users,  load average: 0.04, 0.06, 0.18
+
+22:01:39 -current hour
+up 19 min, - uptime [time from last system start]
+0 users -number of active user
+load average 0.52, 0.58, 0.59 -load average is very important, yet very often misunderstood
+
+second line in top 
+Tasks: 116 total,   1 running, 115 sleeping,   0 stopped,   0 zombie
+
+total -show all process in the system
+running -currently active process. it means, these processes are using CPU right now
+sleeping -generally -process is waiting for something. it may be I/O operation for ex.
+stopped -stopped processes
+zombie -very important state. it a process which had finished a job but still has entry in the process table. means these process are waiting for exit(). 
+
+third line in top
+%Cpu(s):  0.3 us,  1.0 sy,  3.0 ni, 95.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+
+us -user all user processes are combined in this number
+sy -system processes owned by system(kernel) 
+ni -nice, nice allows us to change the priority of the process.
+	: the stand value for processes is 0
+	: but we can modify it from 19(lowest) to -20(highest)
+id -idle time means that the system is bored and do nothing.
+wa -iowait, the number of represents the time (which is a subset of the idle time) when process waiting for inpur/output operation.
+hi -hardware interrupt, these are physical interrupts from hardware and are handled by CPU itself.
+si -software interrupt, 
+st -steal time, very important understand, especially when we are working on virtualized environment. this number represents the time "stealed" from the virtual machine by hypervisor. how long system needs to wait for resources from hypervisor.
+
+Process ID
+
+PID - process ID number
+USER -process owner
+PR -default priority to the process, scheduled by kernel when process was started
+NI -nice, shows value 
+VIRT -total amount of memory used by the process
+RES -RAM memory used by process
+SHR -amount of memory shared with other proceeses.
+S -process state 
+%CPU -what amount of available CPU is used by the process.
+%MEM -like for CPU, but this value represents memory usage
+TIME+ -Total time of CPU usage by the process
+COMMAND -quite obvious, this process is executed.
