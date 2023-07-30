@@ -1,0 +1,7 @@
+Ls
+
+- One of core linux & Unix command.
+- ls -l is indicates the ls command passed with arguments l
+	: '-' one dash determined the argument is one letter like ls -l, ls -h, ls -a however we can pass arguments such as ls -alh idk how it would exlained.
+	: '--' double dash is indicates the command passed with more than one letter arguments like ls --help, ls --sort=size, ls --inode
+
