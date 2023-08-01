@@ -1,0 +1,33 @@
+ps 
+
+- Ps is abbreviation of process status
+- PID : process id
+- TTY Terminal associated with the process. Here is a very detailed reading about TTY
+- TIME total time of CPU Usage
+- CMD the command which is running
+
+- D uninterruptible sleep
+- I Idle kernel thread
+- R running or runnable (on run queue)
+- S interruptible sleep (waiting for an event to complete)
+- T stopped by job control signal
+- t stopped by debugger during the tracing
+- X dead (should never be seen)
+- Z defunct ("zombie") process, terminated but not reaped by its parent
+
+- < high-priority (not nice to other users)
+- N low-priority (nice to other users)
+- s is a session leader
+- l is multi-threaded
+- + is in the foreground process group
+
+ps -ef [used mostly when someone wants to determine the PID of the process]
+ps aux [it shows PID, status, and resources usage]
+ps aux --forest [hierachy]
+pstree [easy to see system and dependencies]
+
+ps -f -u syslog [show all process run by syslog]
+ps -f -C cron [show all processes, where the executable is cron]
+ps -f -p 1 [shows process with PID 1]
+ps -f --ppid 1 [show all processes where parent process has PID 1,]
+
