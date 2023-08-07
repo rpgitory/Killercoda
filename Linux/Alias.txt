@@ -1,0 +1,33 @@
+Alias
+
+ll is an alias configured in our profile 
+	: please have in mind, not always, not for all user, not in all systems
+
+alias lh='ls -alh' [create alias]
+unalias lh [remove alias]
+
+Creating alias forever
+1st Method
+
+echo "alias lh='ls -alh'" >> .bashrc
+then 
+source ./.bashrc
+
+source is useful in many cases, It reads executes scripts (or should we say - content of the files, as it doesn't need to be script) in current shell.
+
+2nd Method
+.bash_aliases - The file should be loacted automatically when .bashrc is located.
+echo "alias lh1='ls -alh'" >> .bash_aliases
+source ./.bashrc
+
+To check current alias just type 'alias'
+
+
+Global configuration 
+The place where we have to add our aliases is "/etc/profile.d."
+
+SOme unnecessry knowledge :- when you login to system, the ~.profile file is loaded. but before this file system loads the main and common configuration from /etc/profile file. This file does different things and loads all files from /etc/profile.d directory. Files are loaded in alphabetical order, so one of the good practices is to keep numbers in the files, if the order is important for us. So, let's supose, our aliases are not that important, therefor we can load it on the very end of this execution.
+
+echo "alias lh2='ls -alh'" >> /etc/profile.d/99-aliases.sh
+
+
