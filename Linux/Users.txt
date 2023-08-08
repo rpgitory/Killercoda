@@ -1,0 +1,76 @@
+Users
+
+Linux has two types of user or we can say three type of user
+1 Standard User
+2 Privileges User
+3 root user
+
+whoami : to find which user are you.
+id : what is user ID, Primary group ID (GID) and other groups to which user belongs to.
+
+UID, GID... what are they?
+
+UID 0 is reserved for root.
+  : 1-99 are resereved for predefined accounts (like games, mail, www-data, sys, bin, and more)
+  : 100-999 reserved for system adn admin accounts
+  : 1000+ are resereved for user
+
+GID 0 is resereved for root.
+  : 1-99 are reserved for system and application use.
+  : 100+ are for user
+
+
+cat /etc/passwd 
+This how you will understand the /etc/passwd file.
+username:password:UID:GID:description:homedir:shell
+
+Bourne Again shell (Bash) is most common used shell, ksh,zsh (main shell on MacOS) or tcsh
+- cat /etc/shells [To see availables shells in OS.]
+
+cat /etc/shadow
+The Magic file. 
+	- it contain sensitive information such as; user password, other configurations [last password change, minimum-maximum password age, password expiry warning, account inactivity period, account expiry date, reserved field]
+
+: If password set for the user, it is hased and not retrieveable from the file (not retrieveable by staring it lol, it can reteieveable from such a password cracking tools so chill, but it is not that easy buddy!!) 
+: * There is no password set (and very good, as we want to use passwordless approach with access keys, no passwords)
+: ! password was never set
+
+cat /etc/group
+Structure :- group name.
+	     password.
+	     GID.
+	     user belong to the group
+why password :- well there is possibility to have passwd set for groups.
+
+cat /etc/gshadow
+This file contains encrypted passwords for groups.
+
+Create User
+
+useradd testuser1
+adduser testuser2 [it will create a home directory, it will ask you from password ]
+
+useradd :
+	: -d create home directory in specified location, if we want to change
+	: -m create the home directory
+	: -p password
+	: -s provide shell
+	: -c comments or decription of the account 
+
+Modify existing user 
+Note : GID is a Group IDentifier
+
+Usermod 
+usermod testuser3 -g testuser2 [testuser3 join to testuser2 group ] we can also do by GID usermod testuser3 -g 1002 [when -g used /etc/passwd file will modify]
+
+'-g' used for group while '-G' used for groups 
+
+usermod testuser3 -G testuser2 [here we added the secondary group 1001(testuser1) ] [when -G used /etc/group file will modify]
+usermod testuser3 -G 1001 [so here we added testuser1 as secondary group so we should have total two secondary group right? but it's not, you don't trust me check cat /etc/group]
+
+let me tell you why this happened !!  - It because we didn't do the operation correctly. it is good habit to add 'a' argument to usemod -G. 'a' means --append 
+
+Remove all secondary groups, : usermod testuser3 -G "" 
+Remove user with home and everything delete. : userdel -rf testuser3
+
+
